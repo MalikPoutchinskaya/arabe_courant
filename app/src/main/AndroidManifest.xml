@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.poutchinskaya.malik.sotunisia" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/flag_app"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Presentation.SplashScreen.SplashScreen"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Presentation.VocabulaireController">
+        </activity>
+
+        <activity
+            android:name=".Presentation.Home.HomeController">
+        </activity>
+    </application>
+
+</manifest>
