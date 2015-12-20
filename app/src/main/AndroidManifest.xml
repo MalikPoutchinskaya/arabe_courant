@@ -22,6 +22,10 @@
         </activity>
 
         <activity
+            android:name=".Presentation.Choix_langues.ChoixLangue_activity">
+        </activity>
+
+        <activity
             android:name=".Presentation.Home.HomeController">
         </activity>
     </application>
