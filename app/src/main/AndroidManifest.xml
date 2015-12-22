@@ -18,16 +18,16 @@
         </activity>
 
         <activity
-            android:name=".Presentation.VocabulaireController">
+            android:name=".Presentation.Vocabulaire.VocabulaireController">
         </activity>
 
         <activity
-            android:name=".Presentation.Choix_langues.ChoixLangue_activity">
+            android:name=".Presentation.Home.Home_activity">
         </activity>
 
-        <activity
-            android:name=".Presentation.Home.HomeController">
-        </activity>
+
     </application>
+
+
 
 </manifest>

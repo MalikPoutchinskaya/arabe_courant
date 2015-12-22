@@ -1,8 +1,7 @@
-package com.poutchinskaya.malik.sotunisia.Presentation;
+package com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -18,9 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.poutchinskaya.malik.sotunisia.Metier.GestionLangues;
 import com.poutchinskaya.malik.sotunisia.Metier.GestionMot;
-import com.poutchinskaya.malik.sotunisia.NavigationDrawerFragment;
-import com.poutchinskaya.malik.sotunisia.Presentation.Home.HomeController;
+import com.poutchinskaya.malik.sotunisia.Presentation.Home.Home_activity;
+import com.poutchinskaya.malik.sotunisia.Presentation.Model.Mot;
+import com.poutchinskaya.malik.sotunisia.Presentation.NavigationDrawerFragment;
 import com.poutchinskaya.malik.sotunisia.R;
 
 public class VocabulaireController extends AppCompatActivity
@@ -35,6 +36,8 @@ public class VocabulaireController extends AppCompatActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+
+     public static String langueChoisie;
 
 
     @Override
@@ -51,6 +54,9 @@ public class VocabulaireController extends AppCompatActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+        //Récupération de la langue choisie
+        Intent intent = getIntent();
+        langueChoisie = intent.getStringExtra("langueChoisie");
 
     }
 
@@ -67,7 +73,7 @@ public class VocabulaireController extends AppCompatActivity
         switch (number) {
             case 3:
                 mTitle = getString(R.string.title_Accueil);
-                Intent intent = new Intent(getApplicationContext(), HomeController.class);
+                Intent intent = new Intent(getApplicationContext(), Home_activity.class);
                 startActivity(intent);
                 break;
             case 2:
@@ -144,8 +150,9 @@ public class VocabulaireController extends AppCompatActivity
             final View rootView = inflater.inflate(R.layout.fragment_vocabulaire, container, false);
 
 
+
             //On affiche un mot au hasard
-            final GestionMot gestionMot = new GestionMot(rootView.getContext());
+            final GestionMot gestionMot = new GestionMot(rootView.getContext(), langueChoisie);
             Mot premierMot = gestionMot.getUnMotRandom();
             TextView textQuestion = (TextView) rootView.findViewById(R.id.textViewQuestion);
             TextView textReponse1 = (TextView) rootView.findViewById(R.id.textViewReponse1);
@@ -203,5 +210,6 @@ public class VocabulaireController extends AppCompatActivity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
+
 
 }

@@ -1,4 +1,4 @@
-package com.poutchinskaya.malik.sotunisia.Presentation.Choix_langues;
+package com.poutchinskaya.malik.sotunisia.Presentation.Home;
 
 /**
  * Created by Malik on 24/08/2015.
@@ -6,17 +6,24 @@ package com.poutchinskaya.malik.sotunisia.Presentation.Choix_langues;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.TextView;
 
 import com.poutchinskaya.malik.sotunisia.R;
 
-public class ChoixLangue_activity extends FragmentActivity {
+public class Home_activity extends FragmentActivity {
 
+    TextView PresUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_langues);
 
+    }
+
+    public void setPresUser(String text){
+        PresUser = (TextView) findViewById(R.id.textViewPresUtilisateur);
+        PresUser.setText(text);
     }
 
 }

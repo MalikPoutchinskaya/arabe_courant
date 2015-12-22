@@ -1,4 +1,4 @@
-package com.poutchinskaya.malik.sotunisia.Presentation;
+package com.poutchinskaya.malik.sotunisia.Presentation.Model;
 
 import android.media.MediaPlayer;
 
