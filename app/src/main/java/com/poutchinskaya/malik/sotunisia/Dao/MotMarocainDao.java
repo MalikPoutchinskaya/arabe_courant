@@ -7,11 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by Malik on 21/11/2015.
  */
-public class MotDao {
+public class MotMarocainDao implements IMotDao {
 
-    private static final String TABLE_NAME = "mot";
+    private static final String TABLE_NAME = "motMa";
     public static final String KEY_ID_MOT="id_mot";
-    public static final String KEY_MOT_TUNISIEN="mot_tunisien";
+    public static final String KEY_MOT_ARABE ="mot_marocain";
     public static final String KEY_MOT_FRANCAIS="mot_francais";
     public static final String KEY_MOT_PHONETIQUE="mot_phonetique";
     public static final String KEY_MOT_AUDIO="mot_audio";
@@ -20,7 +20,7 @@ public class MotDao {
     public static final String CREATE_TABLE_MOT = "CREATE TABLE "+TABLE_NAME+
             " (" +
             " "+KEY_ID_MOT+" INTEGER primary key," +
-            " "+KEY_MOT_TUNISIEN+" TEXT" +
+            " "+ KEY_MOT_ARABE +" TEXT" +
             " "+KEY_MOT_FRANCAIS+" TEXT" +
             " "+KEY_MOT_PHONETIQUE+" TEXT" +
             " "+KEY_MOT_AUDIO+" TEXT" +
@@ -31,7 +31,7 @@ public class MotDao {
 
 
     // Constructeur
-    public MotDao(Context context)
+    public MotMarocainDao(Context context)
     {
         maBaseSQLite = MySQLite.getInstance(context);
     }

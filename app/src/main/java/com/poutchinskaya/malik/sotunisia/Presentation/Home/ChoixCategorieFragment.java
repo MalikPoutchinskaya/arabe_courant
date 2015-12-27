@@ -56,29 +56,7 @@ public class ChoixCategorieFragment extends Fragment {
 
 
 
-        // Grammaire
-        final ImageView loginButtonGrammaire = (ImageView) rootView.findViewById(R.id.imageViewGrammaire);
-        loginButtonGrammaire.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                // Intent intent = new Intent(rootView.getContext(), VocabulaireController.class);
-                // startActivity(intent);
-                Toast.makeText(rootView.getContext(),"Coming soon...",Toast.LENGTH_LONG).show();
-            }
-        });
-
-        // PHRASES
-        final ImageView loginButtonPhrases = (ImageView) rootView.findViewById(R.id.imageViewPhrases);
-        loginButtonPhrases.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // Intent intent = new Intent(rootView.getContext(), VocabulaireController.class);
-                // startActivity(intent);
-                Toast.makeText(rootView.getContext(),"Coming soon...",Toast.LENGTH_LONG).show();
-            }
-        });
 
 
         return rootView;

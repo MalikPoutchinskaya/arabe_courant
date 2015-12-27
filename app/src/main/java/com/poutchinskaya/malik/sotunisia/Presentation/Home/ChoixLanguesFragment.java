@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.poutchinskaya.malik.sotunisia.Metier.GestionLangues;
-import com.poutchinskaya.malik.sotunisia.*;
+import com.poutchinskaya.malik.sotunisia.R;
 
 import java.util.ArrayList;
 

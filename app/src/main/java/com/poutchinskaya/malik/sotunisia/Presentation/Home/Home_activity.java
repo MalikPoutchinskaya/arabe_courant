@@ -17,7 +17,7 @@ public class Home_activity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choix_langues);
+        setContentView(R.layout.activity_home);
 
     }
 
