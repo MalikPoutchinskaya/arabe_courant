@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <!-- Tunisie  -->
+
+
+    <ImageButton
+        android:id="@+id/imageButtonTn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageButtonAl"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:src="@drawable/button_tunisia_custom"
+        android:background="@drawable/button_shape"/>
+
+
+
+    <TextView
+        android:id="@+id/textTn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageButtonTn"
+        android:layout_alignLeft="@+id/imageButtonTn"
+        android:layout_alignRight="@+id/imageButtonTn"
+        android:layout_alignStart="@+id/imageButtonTn"
+        android:layout_below="@+id/imageButtonTn"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:text="Tunisien"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="invisible" />
+
+
+    <!-- Algérie  -->
+
+
+    <ImageButton
+        android:id="@+id/imageButtonAl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/button_algerien_custom"
+        android:background="@drawable/button_shape"/>
+
+    <TextView
+        android:id="@+id/textViewAl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Algérien"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/textViewMa"
+        android:layout_centerHorizontal="true" />
+
+
+    <!-- Maroc  -->
+
+
+    <ImageButton
+        android:id="@+id/imageButtonMa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageButtonAl"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/button_shape"
+        android:src="@drawable/button_maroc_custom" />
+
+    <TextView
+        android:id="@+id/textViewMa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageButtonMa"
+        android:layout_alignLeft="@+id/imageButtonMa"
+        android:layout_alignRight="@+id/imageButtonMa"
+        android:layout_alignStart="@+id/imageButtonMa"
+        android:layout_alignTop="@+id/textTn"
+        android:gravity="center"
+        android:text="Marocain"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="invisible" />
+
+
+    <!-- Next  -->
+
+
+    <ImageView
+        android:id="@+id/imageViewNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageButtonAl"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imageButtonAl"
+        android:layout_marginBottom="101dp"
+        android:src="@drawable/next_mot_vocab"
+        android:visibility="invisible" />
+
+
+
+
+</RelativeLayout>

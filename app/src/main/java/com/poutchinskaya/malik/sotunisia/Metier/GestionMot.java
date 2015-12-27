@@ -4,12 +4,15 @@ import android.content.Context;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.poutchinskaya.malik.sotunisia.Presentation.Mot;
-import com.poutchinskaya.malik.sotunisia.Dao.MotDao;
+import com.poutchinskaya.malik.sotunisia.Dao.IMotDao;
+import com.poutchinskaya.malik.sotunisia.Dao.MotAlgerienDao;
+import com.poutchinskaya.malik.sotunisia.Dao.MotMarocainDao;
+import com.poutchinskaya.malik.sotunisia.Presentation.Model.Mot;
+import com.poutchinskaya.malik.sotunisia.Dao.MotTunisienDao;
 import com.poutchinskaya.malik.sotunisia.R;
 
 import java.util.ArrayList;
@@ -27,16 +30,50 @@ public class GestionMot {
     //Mot utilise actuellement
     Mot currentMot;
 
+    //Récupération de la langue choisie
+    GestionLangues gestionLangues = new GestionLangues();
+    String langueChoisie;
+
+    //Toutes les tables.
+    IMotDao m;
+
+    //Variable de selection en table
+    String motArabe;
+    String motFrancais;
+    String motPhonetique;
+
 
     public GestionMot(Context context) {
         this.context = context;
+    }
+
+    public GestionMot(Context context, String langueChoisie) {
+        this.context = context;
+        this.langueChoisie = langueChoisie;
     }
 
     private ArrayList<Mot> getAllMots() {
 
         ArrayList<Mot> listMot = new ArrayList<Mot>();
 
-        MotDao m = new MotDao(context); // gestionnaire de la table "animal"
+        //Test de la langue choisie
+        if (gestionLangues.getTn().equals(langueChoisie)) {
+            m = new MotTunisienDao(context); // gestionnaire de la table "mot" pour tunisien
+            motArabe = MotTunisienDao.KEY_MOT_ARABE;
+            motFrancais = MotTunisienDao.KEY_MOT_FRANCAIS;
+            motPhonetique = MotTunisienDao.KEY_MOT_PHONETIQUE;
+        } else if (gestionLangues.getAl().equals(langueChoisie)) {
+            m = new MotAlgerienDao(context);
+            motArabe = MotAlgerienDao.KEY_MOT_ARABE;
+            motFrancais = MotAlgerienDao.KEY_MOT_FRANCAIS;
+            motPhonetique = MotAlgerienDao.KEY_MOT_PHONETIQUE;
+        } else if (gestionLangues.getMa().equals(langueChoisie)) {
+            m = new MotMarocainDao(context);
+            motArabe = MotMarocainDao.KEY_MOT_ARABE;
+            motFrancais = MotMarocainDao.KEY_MOT_FRANCAIS;
+            motPhonetique = MotMarocainDao.KEY_MOT_PHONETIQUE;
+        }
+
         m.open(); // ouverture de la table en lecture/écriture
 
 
@@ -44,15 +81,24 @@ public class GestionMot {
         Cursor c = m.getMots();
         if (c.moveToFirst()) {
             do {
-                //TODO:On assimile le codeAudio a un audioPlayer
-                // c.getString(c.getColumnIndex(MotDao.KEY_MOT_AUDIO))
 
-                mediaPlayer = MediaPlayer.create(context, R.raw.test_audio);
+                //Je vais chercher le string du codeAudio en table et je le remet en int
+                int codeAudio = context.getResources().getIdentifier(c.getString(c.getColumnIndex(MotTunisienDao.KEY_MOT_AUDIO)), "raw",
+                        context.getPackageName());
 
-                Mot mot = new Mot(c.getString(c.getColumnIndex(MotDao.KEY_MOT_TUNISIEN)),
-                        c.getString(c.getColumnIndex(MotDao.KEY_MOT_FRANCAIS)),
+                //Je crée mon média avec le int
+                try {
+                    mediaPlayer = MediaPlayer.create(context, codeAudio);
+
+                } catch (Exception e) {
+                    mediaPlayer = null;
+                }
+
+                //Je cree mon mots
+                Mot mot = new Mot(c.getString(c.getColumnIndex(motArabe)),
+                        c.getString(c.getColumnIndex(motFrancais)),
                         mediaPlayer,
-                        c.getString(c.getColumnIndex(MotDao.KEY_MOT_PHONETIQUE)));
+                        c.getString(c.getColumnIndex(motPhonetique)));
 
                 listMot.add(mot);
 
@@ -108,7 +154,6 @@ public class GestionMot {
         ligneDesign1.setVisibility(View.INVISIBLE);
 
 
-
     }
 
     //quand on appuis sur le bouton ?
@@ -122,7 +167,6 @@ public class GestionMot {
         ImageView boutonEcouteMot = (ImageView) rootView.findViewById(R.id.buttonEcouteMot);
 
 
-
         textReponse1.setVisibility(View.VISIBLE);
         textReponse2.setVisibility(View.VISIBLE);
 
@@ -132,21 +176,24 @@ public class GestionMot {
         ligneDesign1.setVisibility(View.VISIBLE);
 
 
-
     }
 
     //Lance et arret l'ecoute du mot
     public void ecouteMot(boolean b) {
         //Si true on ecoute
-        if (b == true && !getCurrentMot().getAudioPlayer().isPlaying()) {
-            getCurrentMot().getAudioPlayer().start();
+        try {
+            if (b == true && !getCurrentMot().getAudioPlayer().isPlaying()) {
+                getCurrentMot().getAudioPlayer().start();
 
-        } else if(getCurrentMot().getAudioPlayer().isPlaying()) {
-            getCurrentMot().getAudioPlayer().pause();
+            } else if (getCurrentMot().getAudioPlayer().isPlaying()) {
+                getCurrentMot().getAudioPlayer().pause();
+            }
+        } catch (Exception e) {
+            Toast.makeText(context,"Désolé, pas d'audio disponible pour ce mot pour l'instant.",Toast.LENGTH_SHORT).show();
         }
     }
 
-    //Getters Setter du Mot actuel
+        //Getters Setter du Mot actuel
 
     public Mot getCurrentMot() {
         return currentMot;
