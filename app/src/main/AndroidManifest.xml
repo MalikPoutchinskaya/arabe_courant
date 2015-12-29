@@ -25,6 +25,10 @@
             android:name=".Presentation.Home.Home_activity">
         </activity>
 
+        <activity
+            android:name=".Presentation.Prononciation.Prononciation_activiy">
+        </activity>
+
 
     </application>
 

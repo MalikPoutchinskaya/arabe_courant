@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.poutchinskaya.malik.sotunisia.Presentation.Prononciation.Prononciation_Adapter;
+import com.poutchinskaya.malik.sotunisia.Presentation.Prononciation.Prononciation_activiy;
 import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.VocabulaireController;
 import com.poutchinskaya.malik.sotunisia.R;
 
@@ -48,9 +50,9 @@ public class ChoixCategorieFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-               // Intent intent = new Intent(rootView.getContext(), VocabulaireController.class);
-               // startActivity(intent);
-                Toast.makeText(rootView.getContext(),"Coming soon...",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(rootView.getContext(), Prononciation_activiy.class);
+                startActivity(intent);
+               // Toast.makeText(rootView.getContext(),"Coming soon...",Toast.LENGTH_LONG).show();
             }
         });
 

@@ -43,9 +43,6 @@ public class GestionMot {
     String motPhonetique;
 
 
-    public GestionMot(Context context) {
-        this.context = context;
-    }
 
     public GestionMot(Context context, String langueChoisie) {
         this.context = context;
