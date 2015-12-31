@@ -157,8 +157,7 @@ public class ChoixLanguesFragment extends Fragment {
 
 
                 //Envoie des données au prochain fragement
-                // Pour les récupérés
-                b.putString("langueChoisi", gestionLangues.getLangueChoisie());
+                b.putString("langueChoisie", gestionLangues.getLangueChoisie());
                 choixCategorieFragment.setArguments(b);
 
 
@@ -166,7 +165,7 @@ public class ChoixLanguesFragment extends Fragment {
                 // and add the transaction to the back stack so the user can navigate back
                 transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
                 transaction.replace(R.id.fragement_choix_langues, choixCategorieFragment);
-                //transaction.addToBackStack(null);
+                transaction.addToBackStack(null);
 
                 // Commit the transaction
                 transaction.commit();

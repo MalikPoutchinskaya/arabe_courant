@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.poutchinskaya.malik.sotunisia.Metier.GestionPrononciation;
 import com.poutchinskaya.malik.sotunisia.Presentation.Model.Prononciation;
@@ -24,7 +25,9 @@ public class Prononciation_activiy extends Activity {
     private ArrayList<Prononciation> listPrononciation;
     private GestionPrononciation gestionPrononciation;
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class Prononciation_activiy extends Activity {
         HashMap<String, String> map;
 
 
-        for (Prononciation prononciation:listPrononciation
+        for (Prononciation prononciation : listPrononciation
                 ) {
             //Création d'une HashMap pour insérer les informations du premier item de notre listView
             map = new HashMap<String, String>();
@@ -64,7 +67,7 @@ public class Prononciation_activiy extends Activity {
 
         //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
         SimpleAdapter mSchedule = new SimpleAdapter(this.getBaseContext(), listItem, R.layout.ligne_prononciation,
-                new String[] {"lettre_arabe", "lettre_details", "lettre_phonetique"}, new int[] {R.id.lettre_arabe, R.id.lettre_details, R.id.lettre_phonetique});
+                new String[]{"lettre_arabe", "lettre_details", "lettre_phonetique"}, new int[]{R.id.lettre_arabe, R.id.lettre_details, R.id.lettre_phonetique});
 
         //On attribut à notre listView l'adapter que l'on vient de créer
         maListViewPerso.setAdapter(mSchedule);
@@ -76,16 +79,9 @@ public class Prononciation_activiy extends Activity {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 //on récupère la HashMap contenant les infos de notre item (titre, description, img)
                 HashMap<String, String> map = (HashMap<String, String>) maListViewPerso.getItemAtPosition(position);
-                //on créer une boite de dialogue
-                AlertDialog.Builder adb = new AlertDialog.Builder(Prononciation_activiy.this);
-                //on attribut un titre à notre boite de dialogue
-                adb.setTitle("Sélection Item");
-                //on insère un message à notre boite de dialogue, et ici on affiche le titre de l'item cliqué
-                adb.setMessage("Votre choix : "+map.get("titre"));
-                //on indique que l'on veut le bouton ok à notre boite de dialogue
-                adb.setPositiveButton("Ok", null);
-                //on affiche la boite de dialogue
-                adb.show();
+                //on créer un message
+                Toast.makeText(getApplicationContext(), "L'audio " + map.get("lettre_phonetique") + " n'est pas encore disponible.", Toast.LENGTH_LONG).show();
+
             }
         });
 

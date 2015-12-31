@@ -43,7 +43,6 @@ public class GestionMot {
     String motPhonetique;
 
 
-
     public GestionMot(Context context, String langueChoisie) {
         this.context = context;
         this.langueChoisie = langueChoisie;
@@ -186,11 +185,25 @@ public class GestionMot {
                 getCurrentMot().getAudioPlayer().pause();
             }
         } catch (Exception e) {
-            Toast.makeText(context,"Désolé, pas d'audio disponible pour ce mot pour l'instant.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Désolé, pas d'audio disponible pour ce mot pour l'instant.", Toast.LENGTH_SHORT).show();
         }
     }
 
-        //Getters Setter du Mot actuel
+    //Lance et arret l'ecoute du mot
+    public void ecouteMotForNext(boolean b) {
+        //Si true on ecoute
+        try {
+            if (b == true && !getCurrentMot().getAudioPlayer().isPlaying()) {
+                getCurrentMot().getAudioPlayer().start();
+
+            } else if (getCurrentMot().getAudioPlayer().isPlaying()) {
+                getCurrentMot().getAudioPlayer().pause();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    //Getters Setter du Mot actuel
 
     public Mot getCurrentMot() {
         return currentMot;

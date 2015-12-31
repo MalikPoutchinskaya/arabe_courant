@@ -1,17 +1,18 @@
 package com.poutchinskaya.malik.sotunisia.Presentation.Home;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.poutchinskaya.malik.sotunisia.Presentation.Prononciation.Prononciation_Adapter;
 import com.poutchinskaya.malik.sotunisia.Presentation.Prononciation.Prononciation_activiy;
-import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.VocabulaireController;
+import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.VocabulaireFragment;
+import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.Vocabulaire_Activity;
 import com.poutchinskaya.malik.sotunisia.R;
 
 /**
@@ -22,12 +23,12 @@ public class ChoixCategorieFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragement_choix_home, container, false);
 
         //Transmition de la langue choisie
-        final String langueChoisie = getArguments().getString("langueChoisi");
-
+        final String langueChoisie = getArguments().getString("langueChoisie");
 
 
         // VOCABULAIRE
@@ -36,12 +37,15 @@ public class ChoixCategorieFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(rootView.getContext(), VocabulaireController.class);
+
+
+                Intent intent = new Intent(rootView.getContext(), Vocabulaire_Activity.class);
                 intent.putExtra("langueChoisie", langueChoisie);
                 startActivity(intent);
+
+
             }
         });
-
 
 
         // PRONONCIATION
@@ -52,13 +56,9 @@ public class ChoixCategorieFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(rootView.getContext(), Prononciation_activiy.class);
                 startActivity(intent);
-               // Toast.makeText(rootView.getContext(),"Coming soon...",Toast.LENGTH_LONG).show();
+
             }
         });
-
-
-
-
 
 
         return rootView;

@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
  */
 public class MotTunisienDao implements IMotDao{
 
-    private static final String TABLE_NAME = "motTn";
+    private static final String TABLE_NAME = "motTn2";
     public static final String KEY_ID_MOT="id_mot";
     public static final String KEY_MOT_ARABE ="mot_tunisien";
     public static final String KEY_MOT_FRANCAIS="mot_francais";
