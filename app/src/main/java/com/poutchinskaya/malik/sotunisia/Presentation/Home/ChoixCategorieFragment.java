@@ -19,6 +19,8 @@ import com.poutchinskaya.malik.sotunisia.R;
  * Created by Malik on 26/11/2015.
  */
 public class ChoixCategorieFragment extends Fragment {
+    ChoixOptionVocabFragment choixOptionVocabFragment;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -26,6 +28,13 @@ public class ChoixCategorieFragment extends Fragment {
 
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragement_choix_home, container, false);
+
+        //Instance bundle pour transmition de la langue
+        final Bundle b = new Bundle();
+        choixOptionVocabFragment = new ChoixOptionVocabFragment();
+        final FragmentManager fm = getFragmentManager();
+        final FragmentTransaction transaction = fm.beginTransaction();
+
 
         //Transmition de la langue choisie
         final String langueChoisie = getArguments().getString("langueChoisie");
@@ -38,10 +47,22 @@ public class ChoixCategorieFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                //Envoie des données au prochain fragement
+                b.putString("langueChoisie", langueChoisie);
+                choixOptionVocabFragment.setArguments(b);
 
-                Intent intent = new Intent(rootView.getContext(), Vocabulaire_Activity.class);
-                intent.putExtra("langueChoisie", langueChoisie);
-                startActivity(intent);
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack so the user can navigate back
+                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
+                transaction.replace(R.id.fragment_choix_home, choixOptionVocabFragment);
+                transaction.addToBackStack("returnToLangue");
+
+                // Commit the transaction
+                transaction.commit();
+
+                //Changement du titre de pres utilisateur
+                ((Home_activity) getActivity()).setPresUser("Selectionnez une catégorie :");
 
 
             }

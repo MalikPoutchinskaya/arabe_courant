@@ -18,6 +18,7 @@ import com.poutchinskaya.malik.sotunisia.R;
 public class VocabulaireFragment extends Fragment {
 
     String langueChoisie;
+    String domaineChoisie;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,10 +28,11 @@ public class VocabulaireFragment extends Fragment {
 
         //Transmition de la langue choisie
         langueChoisie = ((Vocabulaire_Activity) getActivity()).getLangueChoisie();
+        domaineChoisie = ((Vocabulaire_Activity) getActivity()).getDomaineChoisie();
 
 
         //On affiche un mot au hasard
-        final GestionMot gestionMot = new GestionMot(rootView.getContext(), langueChoisie);
+        final GestionMot gestionMot = new GestionMot(rootView.getContext(), langueChoisie, domaineChoisie);
         Mot premierMot = gestionMot.getUnMotRandom();
         TextView textQuestion = (TextView) rootView.findViewById(R.id.textViewQuestion);
         TextView textReponse1 = (TextView) rootView.findViewById(R.id.textViewReponse1);

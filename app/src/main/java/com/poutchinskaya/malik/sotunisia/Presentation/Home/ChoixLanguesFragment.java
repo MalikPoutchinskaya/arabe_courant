@@ -165,7 +165,7 @@ public class ChoixLanguesFragment extends Fragment {
                 // and add the transaction to the back stack so the user can navigate back
                 transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
                 transaction.replace(R.id.fragement_choix_langues, choixCategorieFragment);
-                transaction.addToBackStack(null);
+                transaction.addToBackStack("returnToLangue");
 
                 // Commit the transaction
                 transaction.commit();
@@ -176,8 +176,12 @@ public class ChoixLanguesFragment extends Fragment {
             }
         });
 
+
+
         return rootView;
     }
+
+
 
 
 }

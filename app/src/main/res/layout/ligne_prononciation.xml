@@ -30,7 +30,7 @@
         android:layout_height="fill_parent"
         android:gravity="center"
         android:text="r de parisien"
-        android:textSize="15²dp"
+        android:textSize="15dp"
         android:background="#ffffff"></TextView>
 
 

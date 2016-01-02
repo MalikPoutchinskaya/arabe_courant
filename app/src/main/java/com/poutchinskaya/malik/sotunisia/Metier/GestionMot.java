@@ -16,6 +16,8 @@ import com.poutchinskaya.malik.sotunisia.Dao.MotTunisienDao;
 import com.poutchinskaya.malik.sotunisia.R;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Malik on 21/11/2015.
@@ -30,9 +32,10 @@ public class GestionMot {
     //Mot utilise actuellement
     Mot currentMot;
 
-    //Récupération de la langue choisie
+    //Récupération de la langue choisie et du domaine
     GestionLangues gestionLangues = new GestionLangues();
     String langueChoisie;
+    String domaineChoisie;
 
     //Toutes les tables.
     IMotDao m;
@@ -41,11 +44,13 @@ public class GestionMot {
     String motArabe;
     String motFrancais;
     String motPhonetique;
+    String motDomaine;
 
 
-    public GestionMot(Context context, String langueChoisie) {
+    public GestionMot(Context context, String langueChoisie, String domaineChoisie) {
         this.context = context;
         this.langueChoisie = langueChoisie;
+        this.domaineChoisie = domaineChoisie;
     }
 
     private ArrayList<Mot> getAllMots() {
@@ -58,6 +63,7 @@ public class GestionMot {
             motArabe = MotTunisienDao.KEY_MOT_ARABE;
             motFrancais = MotTunisienDao.KEY_MOT_FRANCAIS;
             motPhonetique = MotTunisienDao.KEY_MOT_PHONETIQUE;
+            motDomaine = MotTunisienDao.KEY_MOT_DOMAINE;
         } else if (gestionLangues.getAl().equals(langueChoisie)) {
             m = new MotAlgerienDao(context);
             motArabe = MotAlgerienDao.KEY_MOT_ARABE;
@@ -94,7 +100,8 @@ public class GestionMot {
                 Mot mot = new Mot(c.getString(c.getColumnIndex(motArabe)),
                         c.getString(c.getColumnIndex(motFrancais)),
                         mediaPlayer,
-                        c.getString(c.getColumnIndex(motPhonetique)));
+                        c.getString(c.getColumnIndex(motPhonetique)),
+                        c.getString(c.getColumnIndex(motDomaine)));
 
                 listMot.add(mot);
 
@@ -110,14 +117,17 @@ public class GestionMot {
     }
 
     public Mot getUnMotRandom() {
+        ArrayList<Mot> listMotByDomaine = gettAllMotFilterByDomaine();
         int lower = 0;
-        int higher = getAllMots().size();
+        int higher = listMotByDomaine.size();
         int random = (int) (Math.random() * (higher - lower)) + lower;
+        Mot motRandom = listMotByDomaine.get(random);
+
 
         //On met à jour le mot actuel dans la classe
-        setCurrentMot(getAllMots().get(random));
+        setCurrentMot(motRandom);
 
-        return getAllMots().get(random);
+        return motRandom;
 
     }
 
@@ -211,5 +221,39 @@ public class GestionMot {
 
     public void setCurrentMot(Mot currentMot) {
         this.currentMot = currentMot;
+    }
+
+
+    //Retourne la liste des domaines de la table
+    public ArrayList<String> getAllDomaine() {
+        ArrayList<String> listAllDomaine = new ArrayList<>();
+        ArrayList<Mot> listMots = getAllMots();
+        String domaine;
+        for (Mot mot : listMots
+                ) {
+            domaine = mot.getMotDomaine();
+            listAllDomaine.add(domaine);
+
+        }
+
+        Set set = new HashSet();
+        set.addAll(listAllDomaine);
+        ArrayList listSansDoublonDomaine = new ArrayList(set);
+        return listSansDoublonDomaine;
+    }
+
+    //Retourne la liste des mots du domaine choisie
+    private ArrayList<Mot> gettAllMotFilterByDomaine() {
+        ArrayList<Mot> listAllMotByDomaine = new ArrayList<>();
+        ArrayList<Mot> listMots = getAllMots();
+
+        for (Mot mot : listMots
+                ) {
+            if (mot.getMotDomaine().equals(domaineChoisie)) {
+                listAllMotByDomaine.add(mot);
+            }
+
+        }
+        return listAllMotByDomaine;
     }
 }

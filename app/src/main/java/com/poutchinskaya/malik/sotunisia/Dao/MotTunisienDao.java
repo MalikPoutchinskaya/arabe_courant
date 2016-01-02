@@ -15,6 +15,7 @@ public class MotTunisienDao implements IMotDao{
     public static final String KEY_MOT_FRANCAIS="mot_francais";
     public static final String KEY_MOT_PHONETIQUE="mot_phonetique";
     public static final String KEY_MOT_AUDIO="mot_audio";
+    public static final String KEY_MOT_DOMAINE="Domaine";
 
 
     public static final String CREATE_TABLE_MOT = "CREATE TABLE "+TABLE_NAME+
@@ -52,4 +53,5 @@ public class MotTunisienDao implements IMotDao{
         // sélection de tous les enregistrements de la table
         return db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
     }
+
 }

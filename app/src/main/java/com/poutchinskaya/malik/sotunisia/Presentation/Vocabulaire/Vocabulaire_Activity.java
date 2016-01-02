@@ -9,20 +9,20 @@ import com.poutchinskaya.malik.sotunisia.R;
 public class Vocabulaire_Activity extends FragmentActivity {
 
     public static String langueChoisie;
+    public static String domaineChoisie;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Instance bundle pour transmition de la langue
-        final Bundle b = new Bundle();
-        final VocabulaireFragment vocabulaireFragment = new VocabulaireFragment();
+
 
 
         //Récupération de la langue choisie
         Intent intent = getIntent();
         langueChoisie = intent.getStringExtra("langueChoisie");
+        domaineChoisie = intent.getStringExtra("domaineChoisie");
 
 
         setContentView(R.layout.activity_vocabulaire);
@@ -34,7 +34,9 @@ public class Vocabulaire_Activity extends FragmentActivity {
         return langueChoisie;
     }
 
-
+    public static String getDomaineChoisie() {
+        return domaineChoisie;
+    }
 }
 
 

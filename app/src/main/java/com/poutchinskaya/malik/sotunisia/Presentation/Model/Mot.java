@@ -11,14 +11,16 @@ public class Mot {
     private String audioCode;
     private String phonetique;
     private MediaPlayer audioPlayer;
+    private String motDomaine;
 
     //Constructeur
 
-    public Mot(String tunisien, String francais, MediaPlayer audio, String phonetique) {
+    public Mot(String tunisien, String francais, MediaPlayer audio, String phonetique, String domaine) {
         this.tunisien = tunisien;
         this.francais = francais;
         this.audioPlayer = audio;
         this.phonetique = phonetique;
+        this.motDomaine = domaine;
     }
 
     //Getter Setter
@@ -61,6 +63,14 @@ public class Mot {
 
     public void setAudioPlayer(MediaPlayer audioPlayer) {
         this.audioPlayer = audioPlayer;
+    }
+
+    public String getMotDomaine() {
+        return motDomaine;
+    }
+
+    public void setMotDomaine(String motDomaine) {
+        this.motDomaine = motDomaine;
     }
 }
 

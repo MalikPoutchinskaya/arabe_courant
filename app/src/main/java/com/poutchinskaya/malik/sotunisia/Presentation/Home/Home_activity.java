@@ -6,6 +6,7 @@ package com.poutchinskaya.malik.sotunisia.Presentation.Home;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.widget.TextView;
 
 import com.poutchinskaya.malik.sotunisia.R;
@@ -25,5 +26,17 @@ public class Home_activity extends FragmentActivity {
         PresUser = (TextView) findViewById(R.id.textViewPresUtilisateur);
         PresUser.setText(text);
     }
+
+    //Permet de revenir sur le choix des langues
+    @Override
+    public void onBackPressed(){
+        //FragmentManager fm = getSupportFragmentManager();
+        //if (fm.getBackStackEntryCount() > 1) {
+            getFragmentManager().popBackStack();
+        //} else {
+        //    finish();
+        //}
+    }
+
 
 }
