@@ -46,11 +46,14 @@ public class GestionMot {
     String motPhonetique;
     String motDomaine;
 
+    //Listes des mots par domaine
+    ArrayList<Mot> listMotByDomaine;
 
     public GestionMot(Context context, String langueChoisie, String domaineChoisie) {
         this.context = context;
         this.langueChoisie = langueChoisie;
         this.domaineChoisie = domaineChoisie;
+        listMotByDomaine = gettAllMotFilterByDomaine();
     }
 
     private ArrayList<Mot> getAllMots() {
@@ -117,11 +120,13 @@ public class GestionMot {
     }
 
     public Mot getUnMotRandom() {
-        ArrayList<Mot> listMotByDomaine = gettAllMotFilterByDomaine();
         int lower = 0;
         int higher = listMotByDomaine.size();
         int random = (int) (Math.random() * (higher - lower)) + lower;
-        Mot motRandom = listMotByDomaine.get(random);
+         Mot motRandom = listMotByDomaine.get(random);
+
+        //je retire le mot de liste
+        listMotByDomaine.remove(motRandom);
 
 
         //On met à jour le mot actuel dans la classe
@@ -134,7 +139,9 @@ public class GestionMot {
     //quand on appuis sur le bouton Next
     public void modeQuestion(View rootView) {
 
-        Mot suiteMot = getUnMotRandom();
+        try{
+            Mot suiteMot = getUnMotRandom();
+
 
 
         TextView textQuestion = (TextView) rootView.findViewById(R.id.textViewQuestion);
@@ -158,6 +165,11 @@ public class GestionMot {
         boutonNext.setVisibility(View.INVISIBLE);
         boutonEcouteMot.setVisibility(View.INVISIBLE);
         ligneDesign1.setVisibility(View.INVISIBLE);
+
+
+        }catch (Exception e){
+            Toast.makeText(context, "Fin de la liste",Toast.LENGTH_LONG).show();
+        }
 
 
     }
@@ -199,7 +211,7 @@ public class GestionMot {
         }
     }
 
-    //Lance et arret l'ecoute du mot
+    //Lance et arret l'ecoute du mot pour le bouton next
     public void ecouteMotForNext(boolean b) {
         //Si true on ecoute
         try {

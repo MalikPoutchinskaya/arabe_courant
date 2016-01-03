@@ -10,29 +10,15 @@
         android:background="#ffffff">
 
 
-        <Spinner
-            android:id="@+id/domaine_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Choix du domaine :"
-            android:id="@+id/textView2"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButtonTEST_VOCAB"
-            android:layout_below="@+id/domaine_spinner"
+            android:src="@drawable/exercice_button"
+            android:background="@drawable/button_shape"
+            android:layout_marginLeft="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -40,9 +26,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButtonLISTE_VOCAB"
-            android:layout_below="@+id/imageButtonTEST_VOCAB"
+            android:src="@drawable/revision_button"
+            android:background="@drawable/button_shape"
+            android:layout_marginRight="34dp"
+            android:layout_marginEnd="34dp"
+            android:layout_alignTop="@+id/imageButtonTEST_VOCAB"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Spinner
+            android:id="@+id/domaine_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="59dp"
+            />
 
 
     </RelativeLayout>

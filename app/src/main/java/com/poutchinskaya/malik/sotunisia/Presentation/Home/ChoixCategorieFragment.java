@@ -62,7 +62,7 @@ public class ChoixCategorieFragment extends Fragment {
                 transaction.commit();
 
                 //Changement du titre de pres utilisateur
-                ((Home_activity) getActivity()).setPresUser("Selectionnez une catégorie :");
+                ((Home_activity) getActivity()).setPresUser("Selectionnez un domaine et un mode :");
 
 
             }

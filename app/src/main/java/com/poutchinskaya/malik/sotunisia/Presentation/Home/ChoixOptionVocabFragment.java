@@ -17,6 +17,7 @@ import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.Vocabulaire_Ac
 import com.poutchinskaya.malik.sotunisia.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -43,6 +44,8 @@ public class ChoixOptionVocabFragment extends Fragment implements AdapterView.On
         spinner = (Spinner) rootView.findViewById(R.id.domaine_spinner);
         GestionMot gestionMot = new GestionMot(rootView.getContext(),langueChoisie,domaine);
         ArrayList<String> listAllDomaineMot = gestionMot.getAllDomaine();
+        Collections.sort(listAllDomaineMot);
+
             // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_spinner_item,listAllDomaineMot);
             // Specify the layout to use when the list of choices appears
