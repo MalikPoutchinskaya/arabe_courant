@@ -29,13 +29,17 @@ public class Home_activity extends FragmentActivity {
 
     //Permet de revenir sur le choix des langues
     @Override
-    public void onBackPressed(){
-        //FragmentManager fm = getSupportFragmentManager();
-        //if (fm.getBackStackEntryCount() > 1) {
+    public void onBackPressed() {
+
+        int count = getFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            //additional code
+        } else {
             getFragmentManager().popBackStack();
-        //} else {
-        //    finish();
-        //}
+        }
+
     }
 
 

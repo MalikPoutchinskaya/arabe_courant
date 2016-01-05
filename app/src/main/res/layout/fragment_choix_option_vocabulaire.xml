@@ -16,11 +16,11 @@
             android:id="@+id/imageButtonTEST_VOCAB"
             android:src="@drawable/exercice_button"
             android:background="@drawable/button_shape"
-            android:layout_marginLeft="28dp"
-            android:layout_marginStart="28dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignTop="@+id/imageButtonLISTE_VOCAB"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="29dp"
+            android:layout_marginEnd="29dp" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -28,11 +28,12 @@
             android:id="@+id/imageButtonLISTE_VOCAB"
             android:src="@drawable/revision_button"
             android:background="@drawable/button_shape"
-            android:layout_marginRight="34dp"
-            android:layout_marginEnd="34dp"
-            android:layout_alignTop="@+id/imageButtonTEST_VOCAB"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_marginLeft="26dp"
+            android:layout_marginStart="26dp"
+            android:layout_below="@+id/domaine_spinner"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="33dp" />
 
         <Spinner
             android:id="@+id/domaine_spinner"
@@ -43,6 +44,17 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="59dp"
             />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageViewPrononciation"
+            android:src="@drawable/prononciation_start"
+            android:background="@drawable/button_shape"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/imageButtonLISTE_VOCAB"
+            android:layout_alignStart="@+id/imageButtonLISTE_VOCAB"
+            android:layout_marginBottom="27dp" />
 
 
     </RelativeLayout>

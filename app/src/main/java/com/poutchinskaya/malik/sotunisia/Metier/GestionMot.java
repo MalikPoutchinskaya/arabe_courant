@@ -255,7 +255,7 @@ public class GestionMot {
     }
 
     //Retourne la liste des mots du domaine choisie
-    private ArrayList<Mot> gettAllMotFilterByDomaine() {
+    public ArrayList<Mot> gettAllMotFilterByDomaine() {
         ArrayList<Mot> listAllMotByDomaine = new ArrayList<>();
         ArrayList<Mot> listMots = getAllMots();
 

@@ -29,6 +29,10 @@
             android:name=".Presentation.Prononciation.Prononciation_activiy">
         </activity>
 
+        <activity
+            android:name=".Presentation.Vocabulaire.ListeVocabulaire_Activity">
+        </activity>
+
 
     </application>
 

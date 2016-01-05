@@ -26,7 +26,7 @@ public class ChoixLanguesFragment extends Fragment {
     TextView algerien;
     ImageView flagNext;
 
-    ChoixCategorieFragment choixCategorieFragment;
+    ChoixOptionVocabFragment choixCategorieFragment;
 
 
     @Override
@@ -39,11 +39,7 @@ public class ChoixLanguesFragment extends Fragment {
         //Instance du metier
         final GestionLangues gestionLangues = new GestionLangues();
 
-        //Instance bundle pour transmition de la langue
-        final Bundle b = new Bundle();
-        choixCategorieFragment = new ChoixCategorieFragment();
-        final FragmentManager fm = getFragmentManager();
-        final FragmentTransaction transaction = fm.beginTransaction();
+
 
 
         //Initialise les textes des boutons
@@ -155,6 +151,12 @@ public class ChoixLanguesFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                //Instance bundle pour transmition de la langue
+                final Bundle b = new Bundle();
+                choixCategorieFragment = new ChoixOptionVocabFragment();
+                final FragmentManager fm = getFragmentManager();
+                final FragmentTransaction transaction = fm.beginTransaction();
+
 
                 //Envoie des données au prochain fragement
                 b.putString("langueChoisie", gestionLangues.getLangueChoisie());
@@ -171,7 +173,7 @@ public class ChoixLanguesFragment extends Fragment {
                 transaction.commit();
 
                 //Changement du titre de pres utilisateur
-                ((Home_activity) getActivity()).setPresUser("Selectionnez une catégorie :");
+                ((Home_activity) getActivity()).setPresUser("Selectionnez un thème et un mode :");
 
             }
         });

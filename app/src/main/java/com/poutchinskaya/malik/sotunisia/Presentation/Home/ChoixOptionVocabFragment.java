@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.poutchinskaya.malik.sotunisia.Metier.GestionMot;
 import com.poutchinskaya.malik.sotunisia.Presentation.Prononciation.Prononciation_activiy;
+import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.ListeVocabulaire_Activity;
 import com.poutchinskaya.malik.sotunisia.Presentation.Vocabulaire.Vocabulaire_Activity;
 import com.poutchinskaya.malik.sotunisia.R;
 
@@ -75,8 +76,22 @@ public class ChoixOptionVocabFragment extends Fragment implements AdapterView.On
         });
 
 
+        // LISTE VOCAB
+        final ImageView loginButtonListeVocab = (ImageView) rootView.findViewById(R.id.imageButtonLISTE_VOCAB);
+        loginButtonListeVocab.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(rootView.getContext(), ListeVocabulaire_Activity.class);
+                intent.putExtra("langueChoisie", langueChoisie);
+                intent.putExtra("domaineChoisie", domaine);
+                startActivity(intent);
+
+            }
+        });
+
         // PRONONCIATION
-        final ImageView loginButtonPrononciation = (ImageView) rootView.findViewById(R.id.imageButtonLISTE_VOCAB);
+        final ImageView loginButtonPrononciation = (ImageView) rootView.findViewById(R.id.imageViewPrononciation);
         loginButtonPrononciation.setOnClickListener(new View.OnClickListener() {
 
             @Override
