@@ -19,7 +19,7 @@
         android:id="@+id/vocab_phonetique"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#a7d1ff"
+        android:background="#906bc0d5"
         android:gravity="center"
         android:text="gh"
         android:textSize="20dp"

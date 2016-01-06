@@ -1,54 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
 
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#ffffff">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#ffffff">
 
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/titre_app" />
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="80dp"
-            android:id="@+id/imageView2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/titre_app"/>
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/tampon1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tampon1"
-        android:gravity="center"
-        android:background="#ffffff" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Bienvenue. Choisissez une langue d'étude :"
-        android:id="@+id/textViewPresUtilisateur"
-        android:gravity="center"
-        android:background="#ffffff" />
-
-
+        <TextView
+            android:id="@+id/textViewPresUtilisateur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:text="Bienvenue. Choisissez une langue d'étude :"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
-    <fragment android:id="@+id/fragement_choix_langues"
-        android:layout_width="match_parent" android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:name="com.poutchinskaya.malik.sotunisia.Presentation.Home.ChoixLanguesFragment"
-        tools:layout="@layout/framgement_choix_langues" />
+        <fragment
+            android:id="@+id/fragement_choix_langues"
+            android:name="com.poutchinskaya.malik.sotunisia.Presentation.Home.ChoixLanguesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            tools:layout="@layout/framgement_choix_langues" />
 
 
-
-
+    </LinearLayout>
 
 </LinearLayout>
-

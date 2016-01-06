@@ -18,7 +18,7 @@
             android:id="@+id/textViewQuestion"
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:background="#cce5ff"
+            android:background="#906bc0d5"
             android:gravity="center"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -38,7 +38,7 @@
             android:id="@+id/textViewLigne1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#a7d1ff"
+            android:background="#906bc0d5"
             android:visibility="invisible"
              />
 
