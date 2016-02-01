@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -44,17 +43,16 @@
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:gravity="center"
+            android:paddingBottom="20dp"
             android:text="Bienvenue. Choisissez une langue d'étude :"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
 
-        <fragment
-            android:id="@+id/fragement_choix_langues"
-            android:name="com.poutchinskaya.malik.sotunisia.Presentation.Home.ChoixLanguesFragment"
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
-            tools:layout="@layout/framgement_choix_langues" />
+            android:orientation="vertical"></FrameLayout>
 
 
     </LinearLayout>

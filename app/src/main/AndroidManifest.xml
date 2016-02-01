@@ -9,7 +9,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".Presentation.SplashScreen.SplashScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,19 +19,23 @@
         </activity>
 
         <activity
-            android:name=".Presentation.Vocabulaire.Vocabulaire_Activity">
+            android:name=".Presentation.Vocabulaire.Vocabulaire_Activity"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".Presentation.Home.Home_activity">
+            android:name=".Presentation.Home.Home_activity"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".Presentation.Prononciation.Prononciation_activiy">
+            android:name=".Presentation.Prononciation.Prononciation_activiy"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".Presentation.Vocabulaire.ListeVocabulaire_Activity">
+            android:name=".Presentation.Vocabulaire.ListeVocabulaire_Activity"
+            android:screenOrientation="portrait">
         </activity>
 
 

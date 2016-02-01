@@ -4,9 +4,10 @@ package com.poutchinskaya.malik.sotunisia.Presentation.Home;
  * Created by Malik on 24/08/2015.
  */
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.widget.TextView;
 
 import com.poutchinskaya.malik.sotunisia.R;
@@ -19,6 +20,12 @@ public class Home_activity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        ChoixLanguesFragment choixLanguesFragment = new ChoixLanguesFragment();
+        fragmentTransaction.add(R.id.fragment_container, choixLanguesFragment, "choixLangue");
+        fragmentTransaction.commit();
 
     }
 

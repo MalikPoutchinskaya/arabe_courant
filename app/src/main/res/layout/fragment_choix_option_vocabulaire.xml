@@ -1,56 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="#ffffff"
+    android:clickable="true"
 
-    <RelativeLayout
+
+    android:orientation="vertical">
+
+    <Spinner
+        android:id="@+id/domaine_spinner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+         />
+
+    <LinearLayout
+        android:id="@+id/fd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
 
 
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButtonTEST_VOCAB"
-            android:src="@drawable/exercice_button"
-            android:background="@drawable/button_shape"
-            android:layout_alignTop="@+id/imageButtonLISTE_VOCAB"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/imageButtonLISTE_VOCAB"
-            android:src="@drawable/revision_button"
-            android:background="@drawable/button_shape"
-            android:layout_marginTop="32dp"
-            android:layout_below="@+id/domaine_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/domaine_spinner"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/button_shape"
+            android:src="@drawable/revision_button" />
 
-        <Spinner
-            android:id="@+id/domaine_spinner"
+        <ImageButton
+            android:id="@+id/imageButtonTEST_VOCAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imageButtonLISTE_VOCAB"
+            android:layout_weight="1"
+            android:background="@drawable/button_shape"
+            android:layout_gravity="center"
+            android:src="@drawable/exercice_button" />
+
+    </LinearLayout>
+
+
+
+        <ImageButton
+            android:id="@+id/imageViewPrononciation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageViewPrononciation"
-            android:src="@drawable/prononciation_start"
-            android:background="@drawable/button_shape"
-            android:layout_marginTop="40dp"
             android:layout_below="@+id/imageButtonLISTE_VOCAB"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_weight="1"
+            android:background="@drawable/button_shape"
+            android:layout_gravity="center"
+            android:src="@drawable/prononciation_start" />
 
 
-    </RelativeLayout>
+
+
+
 </LinearLayout>
+
+

@@ -155,6 +155,7 @@ public class ChoixLanguesFragment extends Fragment {
                 final Bundle b = new Bundle();
                 choixCategorieFragment = new ChoixOptionVocabFragment();
                 final FragmentManager fm = getFragmentManager();
+
                 final FragmentTransaction transaction = fm.beginTransaction();
 
 
@@ -166,7 +167,9 @@ public class ChoixLanguesFragment extends Fragment {
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack so the user can navigate back
                 transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
-                transaction.replace(R.id.fragement_choix_langues, choixCategorieFragment);
+                //transaction.remove(fm.findFragmentById(R.id.fragement_choix_langues));
+
+                transaction.replace(R.id.fragment_container, choixCategorieFragment);
                 transaction.addToBackStack("returnToLangue");
 
                 // Commit the transaction

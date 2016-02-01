@@ -21,6 +21,8 @@
             android:background="#906bc0d5"
             android:gravity="center"
             android:text="Large Text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
@@ -32,6 +34,8 @@
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:visibility="invisible"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:background="#ffffff" />
 
         <TextView
@@ -46,6 +50,8 @@
             android:id="@+id/textViewReponse2"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:gravity="center"
             android:text="Large 2"
             android:textAppearance="?android:attr/textAppearanceLarge"

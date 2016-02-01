@@ -1,6 +1,8 @@
 package com.poutchinskaya.malik.sotunisia.Presentation.Home;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -69,6 +71,9 @@ public class ChoixOptionVocabFragment extends Fragment implements AdapterView.On
         // Apply the adapter to the spinner
         spinner.setAdapter(new MyCustomAdapter(rootView.getContext(), R.layout.ligne_spinner, listString));
         spinner.setOnItemSelectedListener(this);
+
+
+
 
 
         // VOCABULAIRE

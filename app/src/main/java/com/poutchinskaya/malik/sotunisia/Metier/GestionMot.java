@@ -72,11 +72,13 @@ public class GestionMot {
             motArabe = MotAlgerienDao.KEY_MOT_ARABE;
             motFrancais = MotAlgerienDao.KEY_MOT_FRANCAIS;
             motPhonetique = MotAlgerienDao.KEY_MOT_PHONETIQUE;
+            motDomaine = MotAlgerienDao.KEY_MOT_DOMAINE;
         } else if (gestionLangues.getMa().equals(langueChoisie)) {
             m = new MotMarocainDao(context);
             motArabe = MotMarocainDao.KEY_MOT_ARABE;
             motFrancais = MotMarocainDao.KEY_MOT_FRANCAIS;
             motPhonetique = MotMarocainDao.KEY_MOT_PHONETIQUE;
+            motDomaine = MotMarocainDao.KEY_MOT_DOMAINE;
         }
 
         m.open(); // ouverture de la table en lecture/écriture

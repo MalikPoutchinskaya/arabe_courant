@@ -23,7 +23,7 @@ public class MySQLite extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1; // l'incrément appelle onUpgrade(), décrément => onDowngrade()
     private String DATABASE_PATH; // chemin défini dans le constructeur
-    private static final String DATABASE_NAME = "DBVocab7.sqlite";
+    private static final String DATABASE_NAME = "DBVocab_V2.sqlite";
 
     public static synchronized MySQLite getInstance(Context context) {
         if (sInstance == null) { sInstance = new MySQLite(context); }
