@@ -1,0 +1,133 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
+
+    <style name="title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+    <style name="title_words">
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="title_language">
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="title_number_words">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="title_button" parent="button_bottom_screen">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="title_exercice_done">
+        <item name="android:textSize">40sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="arabic_word">
+        <item name="android:gravity">end</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+    <style name="category_name" parent="normal_text">
+        <item name="android:gravity">start</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="normal_text">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="category_words">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:gravity">start</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="prononciation_header">
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="prononciation_description">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+
+    <style name="footer_button">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="label_dialog_floatingbutton" >
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:background">@drawable/background_label_floattingbutton</item>
+    </style>
+
+    <style name="filter_menu_checkbox" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+
+    </style>
+
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+
+
+        <!-- No backgrounds, titles or window float -->
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="button_bottom_screen">
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+    
+    <style name="radiobutton_filter">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:button">@android:color/transparent</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+</resources>

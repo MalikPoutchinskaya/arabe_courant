@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <ProgressBar
+            android:id="@+id/exercice_progressbar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            android:paddingBottom="5dp"
+            android:paddingEnd="80dp"
+            android:paddingStart="80dp"
+            android:paddingTop="5dp"
+            android:progress="1" />
+
+
+        <TextView
+            android:id="@+id/exercice_french_word"
+            style="@style/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exercice_progressbar"
+            android:layout_margin="0dp"
+            android:background="@drawable/background_spike"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:text="test"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/exercice_recycler_words"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/relative_button_exercice"
+            android:layout_below="@+id/exercice_french_word" />
+
+        <RelativeLayout
+            android:id="@+id/relative_button_exercice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/exercice_button_next"
+                style="@style/title_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_exercice_selector"
+                android:text="suivant !" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,14 +1,31 @@
 <resources>
-    <string name="app_name">Weld lbald</string>
-
-    <string name="title_Accueil">Accueil</string>
-    <string name="title_Prononciation">Prononciation</string>
-    <string name="title_Vocabulaire">Vocabulaire</string>
+    <string name="app_name">Test Binding</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_test_drawer">test_drawer</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_example">Example action</string>
+    <string name="words_number">%s mots</string>
 
-    <string name="action_settings">Settings</string>
+    <!-- INTRO -->
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">SUIVANT</string>
+    <string name="skip">PASSER</string>
+    <string name="start">C\'EST PARTI</string>
+
+    <string name="slide_1_title">1001 mots d\'arabe</string>
+    <string name="slide_1_desc">La façon la plus simple d\'apprendre l\'arabe vraiment parlé!</string>
+
+    <string name="slide_2_title">Trié par categorie</string>
+    <string name="slide_2_desc">Le vocabulaire est trié par categorie, c\'est plus simple!</string>
+
+    <string name="slide_3_title">Ecouté et prononcé</string>
+    <string name="slide_3_desc">Pour plus de facilité, tout est en phoenetique simplifié!</string>
+
+    <string name="slide_4_title">Entrainez-vous</string>
+    <string name="slide_4_desc">Des exercices et un classement pour suivre votre progression!</string>
+
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
 </resources>

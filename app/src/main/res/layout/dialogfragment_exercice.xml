@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen2"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title_exercice_done"
+        style="@style/title_exercice_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="90dp"
+        android:text="Résultat :" />
+
+    <RatingBar
+        android:id="@+id/exercice_score_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_exercice_done"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        android:id="@+id/exercice_new_record_ic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/exercice_score_ratingbar"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_party_white"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/exercice_new_record_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/exercice_new_record_ic"
+        android:layout_centerHorizontal="true"
+        android:text="Nouveau record !"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/relative_button_exercice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/dialogfragment_exercice_button"
+            style="@style/title_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_exercice_selector"
+            android:text="Super !" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/menu_filter_radiogroup"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="20dp"
+        android:text="Trier par :"
+        android:textColor="@color/white" />
+
+    <RadioGroup
+        android:id="@+id/menu_filter_radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/floatingActionButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/filter_asc_abc"
+            style="@style/radiobutton_filter"
+            android:background="@drawable/selector_filter_abc_asc" />
+
+        <RadioButton
+            android:id="@+id/filter_desc_alph"
+            style="@style/radiobutton_filter"
+            android:background="@drawable/selector_filter_abc_desc" />
+
+        <RadioButton
+            android:id="@+id/filter_asc_stars"
+            style="@style/radiobutton_filter"
+            android:background="@drawable/selector_filter_stars_asc" />
+
+        <RadioButton
+            android:id="@+id/filter_desc_stars"
+            style="@style/radiobutton_filter"
+            android:background="@drawable/selector_filter_stars_desc" />
+        <RadioButton
+            android:id="@+id/filter_asc_hist"
+            style="@style/radiobutton_filter"
+            android:background="@drawable/selector_filter_hist_desc" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/floatingActionButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

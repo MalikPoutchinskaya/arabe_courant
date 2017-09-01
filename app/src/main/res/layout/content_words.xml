@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.poutchinskaya.malik.sotunisia.model.Category" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/words_list_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/words_list_header_height"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitXY"
+            app:imageUrl="@{category.thumbnail}" />
+
+        <TextView
+            style="@style/title_words"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/title_number_words"
+            android:layout_marginBottom="5dp"
+            android:gravity="center_horizontal"
+            android:text="@{category.title}" />
+
+        <TextView
+            android:id="@+id/title_number_words"
+            style="@style/title_number_words"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ratingbar_words"
+            android:gravity="center_horizontal"
+            android:text="@{String.format(@string/words_number, Integer.toString(category.words.size()))}" />
+
+        <RatingBar
+            android:id="@+id/ratingbar_words"
+            style="?attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/words_list_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:isIndicator="true"
+            android:numStars="4"
+            android:rating="@{category.score.value}"
+            android:stepSize="0.5"
+            android:theme="@style/RatingBar" />
+
+
+        <FrameLayout
+            android:id="@+id/word_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/words_list_header" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/floating_position_for_words"
+            android:src="@drawable/ic_hearing_black_24px" />
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="language"
+            type="com.poutchinskaya.malik.sotunisia.model.Language" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/android_custom_gridview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/adapter_language_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:imageName="@{language.name}" />
+
+        <TextView
+            android:id="@+id/adapter_language_text"
+            style="@style/title_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/adapter_language_image"
+            android:text="@{language.name}"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+</layout>

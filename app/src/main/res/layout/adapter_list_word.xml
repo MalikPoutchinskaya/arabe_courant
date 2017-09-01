@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="word"
+            type="com.poutchinskaya.malik.sotunisia.model.Word" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/list_exercice_arabic_word"
+            style="@style/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:gravity="end"
+            android:text="@{word.french}" />
+
+        <TextView
+            android:id="@+id/arabic_word"
+            style="@style/arabic_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/list_exercice_arabic_word"
+            android:layout_alignRight="@+id/list_exercice_arabic_word"
+            android:layout_below="@+id/list_exercice_arabic_word"
+            android:gravity="end"
+            android:paddingBottom="20dp"
+            android:text="@{word.arabic}" />
+
+    </RelativeLayout>
+</layout>
