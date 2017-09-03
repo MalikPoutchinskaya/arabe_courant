@@ -53,6 +53,9 @@ dependencies {
     //circle picture
     compile 'de.hdodenhof:circleimageview:1.2.1'
 
+    //search bar
+    compile 'com.github.arimorty:floatingsearchview:2.1.1'
+
     //Graphique
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     compile 'com.android.support:appcompat-v7:25.3.1'

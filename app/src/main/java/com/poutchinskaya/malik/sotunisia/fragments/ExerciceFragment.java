@@ -76,7 +76,6 @@ public class ExerciceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_exercice, container, false);
-//        final FragmentExerciceBinding binding = DataBindingUtil.setContentView(getActivity(), R.layout.fragment_exercice);
         // instances
         rand = new Random();
         wordsToDisplay = new ArrayList<>();

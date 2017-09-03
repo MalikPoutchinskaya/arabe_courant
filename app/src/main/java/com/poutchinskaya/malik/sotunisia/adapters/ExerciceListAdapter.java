@@ -69,18 +69,18 @@ public class ExerciceListAdapter extends RecyclerView.Adapter<ExerciceListAdapte
     public void onBindViewHolder(WordViewHolder holder, final int position) {
         final Word word = wordList.get(position);
         //init le back à blanc (non selectionné)
-        holder.itemView.findViewById(R.id.list_exercice_arabic_word).setBackgroundColor(Color.TRANSPARENT);
+        holder.itemView.findViewById(R.id.french_word_search).setBackgroundColor(Color.TRANSPARENT);
         holder.getBinding().setVariable(BR.word, word);
         holder.getBinding().executePendingBindings();
         // si c'est l'élément à trouver, on le persist pour le resultat
         if (word.isQuestion()) {
-            viewToFind = holder.itemView.findViewById(R.id.list_exercice_arabic_word);
+            viewToFind = holder.itemView.findViewById(R.id.french_word_search);
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View responseView = v.findViewById(R.id.list_exercice_arabic_word);
+                View responseView = v.findViewById(R.id.french_word_search);
                 onResponseSelected.onResponseSelected(position, word);
                 if (word.isQuestion()) {
                     responseView.setBackground(v.getResources().getDrawable(R.drawable.background_response_true_selector));

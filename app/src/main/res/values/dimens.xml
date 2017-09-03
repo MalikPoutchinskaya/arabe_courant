@@ -19,5 +19,8 @@
     <dimen name="words_list_header_height">150dp</dimen>
     <dimen name="floating_position_for_words">126dp</dimen>
 
+    <!--search bar -->
+    <dimen name="search_view_inset">10dp</dimen>
+
 
 </resources>

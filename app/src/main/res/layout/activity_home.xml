@@ -9,6 +9,10 @@
             type="com.poutchinskaya.malik.sotunisia.model.Language" />
     </data>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
@@ -85,6 +89,8 @@
 
         </android.support.v4.widget.NestedScrollView>
 
+
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
@@ -97,4 +103,16 @@
 
 
     </android.support.design.widget.CoordinatorLayout>
+        <Button
+            android:id="@+id/action_search_fragment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"/>
+        <FrameLayout
+            android:id="@+id/search_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
 </layout>

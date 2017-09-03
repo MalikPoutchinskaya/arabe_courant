@@ -195,6 +195,26 @@ public class EntityHelper {
         return words;
     }
 
+    /**
+     * recupère les mots par une recherche par nom français
+     * @param name mot français recherché
+     * @return la liste des mots trouvés
+     */
+    public List<Word> getWordsByName(String name) {
+        words = new ArrayList<>();
+        wordDao = daoSession.getWordDao();
+        wordQuery = wordDao.queryBuilder()
+                .where(WordDao.Properties.French.like("%" + name + "%"),
+                        WordDao.Properties.LanguageId.eq(new Storage(context).getLanguage()))
+                .orderAsc(WordDao.Properties.French)
+                .build();
+        for (Word word : wordQuery.list()) {
+            words.add(word);
+        }
+
+        return words;
+    }
+
     public Score getBestScore(Long categoryId) {
         scores = new ArrayList<>();
         scoreDao = daoSession.getScoreDao();

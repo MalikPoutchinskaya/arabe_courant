@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/list_exercice_arabic_word"
+            android:id="@+id/french_word_search"
             style="@style/arabic_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

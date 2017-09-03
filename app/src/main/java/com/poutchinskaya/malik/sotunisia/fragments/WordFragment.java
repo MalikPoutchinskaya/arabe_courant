@@ -34,12 +34,12 @@ public class WordFragment extends Fragment {
             public void onClick(View v) {
                 // Create new fragment and transaction
                 Fragment newFragment = new ExerciceFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,
                 // and add the transaction to the back stack if needed
+                transaction.setCustomAnimations(R.anim.enter_from_bottom, R.anim.exit_to_bottom);
                 transaction.replace(R.id.word_fragment, newFragment);
-                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 transaction.addToBackStack(null);
 
                 // Commit the transaction

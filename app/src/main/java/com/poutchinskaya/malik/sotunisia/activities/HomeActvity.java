@@ -6,6 +6,8 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -21,6 +23,7 @@ import com.poutchinskaya.malik.sotunisia.R;
 import com.poutchinskaya.malik.sotunisia.adapters.CategoryAdapter;
 import com.poutchinskaya.malik.sotunisia.appmanagement.Storage;
 import com.poutchinskaya.malik.sotunisia.databinding.ActivityHomeBinding;
+import com.poutchinskaya.malik.sotunisia.fragments.SearchFragment;
 import com.poutchinskaya.malik.sotunisia.helpers.ChartDataHelper;
 import com.poutchinskaya.malik.sotunisia.helpers.EntityHelper;
 import com.poutchinskaya.malik.sotunisia.model.Category;
@@ -51,7 +54,7 @@ public class HomeActvity extends AbstractActivityBehavior {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -71,6 +74,20 @@ public class HomeActvity extends AbstractActivityBehavior {
 
         adapter = new CategoryAdapter(this, categories);
 
+
+        //search fragment
+        findViewById(R.id.action_search_fragment_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment searchFragment = new SearchFragment();
+                // adding fragment to relative layout by using layout id
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_bottom, R.anim.exit_to_bottom);
+                transaction.replace(R.id.search_fragment, searchFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
 
         //All
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -120,43 +137,20 @@ public class HomeActvity extends AbstractActivityBehavior {
     private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbar.setTitle(" ");
         collapsingToolbar.setExpandedTitleColor(ContextCompat.getColor(this, android.R.color.transparent));
-//        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-//        appBarLayout.setExpanded(true);
-//
-//        // hiding & showing the title when toolbar expanded & collapsed
-//        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-//            boolean isShow = false;
-//            int scrollRange = -1;
-//
-//            @Override
-//            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-//                if (scrollRange == -1) {
-//                    scrollRange = appBarLayout.getTotalScrollRange();
-//                }
-//                if (scrollRange + verticalOffset == 0) {
-//                    collapsingToolbar.setTitle(languageSelected.getName());
-//                    isShow = true;
-//                } else if (isShow) {
-//                    collapsingToolbar.setTitle(" ");
-//                    isShow = false;
-//                }
-//            }
-//        });
     }
 
 
     /**
      * RecyclerView item decoration - give equal margin around grid item
      */
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+    private class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
         private int spanCount;
         private int spacing;
         private boolean includeEdge;
 
-        public GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
+        GridSpacingItemDecoration(int spanCount, int spacing, boolean includeEdge) {
             this.spanCount = spanCount;
             this.spacing = spacing;
             this.includeEdge = includeEdge;
