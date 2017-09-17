@@ -31,6 +31,12 @@ public class DialogFloatingActionButton extends Dialog {
         this.categories = categoriesToSort;
     }
 
+    public DialogFloatingActionButton(@NonNull Context context, EntityHelper entityHelper, List<Category> categoriesToSort) {
+        super(context);
+        this.entityHelper = entityHelper;
+        this.categories = categoriesToSort;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,18 +69,28 @@ public class DialogFloatingActionButton extends Dialog {
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId) {
                     case R.id.filter_asc_abc:
+//                        EventBus.getDefault().post(new FilterEvent(entityHelper.getCategoriesSortByAscTitle(categories)));
+
                         iDialogFloatingResponse.onSortSelected(entityHelper.getCategoriesSortByAscTitle(categories));
                         break;
                     case R.id.filter_desc_alph:
+//                        EventBus.getDefault().post(new FilterEvent(entityHelper.getCategoriesSortByDescTitle(categories)));
+
                         iDialogFloatingResponse.onSortSelected(entityHelper.getCategoriesSortByDescTitle(categories));
                         break;
                     case R.id.filter_asc_stars:
+//                        EventBus.getDefault().post(new FilterEvent(entityHelper.getCategoriesSortByAscStars(categories)));
+
                         iDialogFloatingResponse.onSortSelected(entityHelper.getCategoriesSortByAscStars(categories));
                         break;
                     case R.id.filter_desc_stars:
+//                        EventBus.getDefault().post(new FilterEvent(entityHelper.getCategoriesSortByDescStars(categories)));
+
                         iDialogFloatingResponse.onSortSelected(entityHelper.getCategoriesSortByDescStars(categories));
                         break;
                     case R.id.filter_asc_hist:
+//                        EventBus.getDefault().post(new FilterEvent(entityHelper.getCategoriesSortByAscDates(categories)));
+
                         iDialogFloatingResponse.onSortSelected(entityHelper.getCategoriesSortByAscDates(categories));
                         break;
                     default:
