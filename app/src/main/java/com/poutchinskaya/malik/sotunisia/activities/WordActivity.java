@@ -72,7 +72,7 @@ public class WordActivity extends AbstractActivityBehavior {
 
 
 
-        findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.action_filter_fragment_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openDrawer();

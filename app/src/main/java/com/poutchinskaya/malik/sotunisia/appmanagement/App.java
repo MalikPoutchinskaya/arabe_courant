@@ -40,6 +40,7 @@ public class App extends Application {
 
         // a faire apres creation de la base
         if (prefManager.isFirstTimeLaunch()) {
+//        if (true) {
             try {
                 copyDataBase(DB_NAME);
             } catch (IOException e) {

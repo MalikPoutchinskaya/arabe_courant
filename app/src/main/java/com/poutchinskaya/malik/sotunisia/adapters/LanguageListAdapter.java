@@ -1,10 +1,12 @@
 package com.poutchinskaya.malik.sotunisia.adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,8 +80,31 @@ public class LanguageListAdapter extends RecyclerView.Adapter<LanguageListAdapte
                 editor.putLong(AppParamEnum.LANGUAGE.name(), language.getId());
                 editor.apply();
 
-                Intent intent = new Intent(v.getContext(), HomeActvity.class);
-                mContext.startActivity(intent);
+                //FIXME: quick fix
+                if (language.getName().equals("Libanais")) {
+                    // 1. Instantiate an AlertDialog.Builder with its constructor
+                    AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+
+                    // 2. Chain together various setter methods to set the dialog characteristics
+                    builder.setMessage("Bientôt disponible !")
+                            .setTitle("Libanais :")
+                            .setNegativeButton("Très bien",new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // if this button is clicked, just close
+                                    // the dialog box and do nothing
+                                    dialog.cancel();
+                                }
+                            });
+
+
+                    // 3. Get the AlertDialog from create()
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
+                } else {
+                    Intent intent = new Intent(v.getContext(), HomeActvity.class);
+                    mContext.startActivity(intent);
+                }
             }
         });
 

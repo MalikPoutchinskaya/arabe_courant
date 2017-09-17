@@ -17,7 +17,7 @@
         android:id="@+id/menu_filter_radiogroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/floatingActionButton"
+        android:layout_above="@+id/action_filter_fragment_button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
@@ -48,7 +48,7 @@
     </RadioGroup>
 
     <ImageView
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/action_filter_fragment_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"

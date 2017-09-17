@@ -16,30 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.arlib.floatingsearchview.FloatingSearchView
-            android:id="@+id/floating_search_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:floatingSearch_backgroundColor="@color/white"
-            app:floatingSearch_close_search_on_keyboard_dismiss="true"
-            app:floatingSearch_leftActionMode="showSearch"
-            app:floatingSearch_searchBarMarginLeft="-5dp"
-            app:floatingSearch_searchBarMarginRight="-5dp"
-            app:floatingSearch_searchBarMarginTop="0dp"
-            app:floatingSearch_dividerColor="@color/colorPrimary"
-            app:floatingSearch_searchHint="Rechercher..."
-            app:floatingSearch_showSearchKey="false"
-            app:floatingSearch_suggestionsListAnimDuration="250"
-            app:floatingSearch_viewSuggestionItemTextColor="@color/colorAccent" />
 
         <TextView
             android:id="@+id/french_word_search"
-            style="@style/title"
+            style="@style/french_word_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="100dp"
-            android:gravity="end"
+            android:layout_centerInParent="true"
+            android:gravity="center"
             android:text="@{word.french}" />
 
         <TextView
@@ -47,10 +31,27 @@
             style="@style/arabic_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/french_word_search"
             android:layout_below="@+id/french_word_search"
-            android:gravity="end"
-            android:paddingBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:text="@{word.arabic}" />
+
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/floating_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:floatingSearch_backgroundColor="@color/white"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_dividerColor="@color/colorPrimary"
+            app:floatingSearch_leftActionMode="showSearch"
+            app:floatingSearch_searchBarMarginLeft="-5dp"
+            app:floatingSearch_searchBarMarginRight="-5dp"
+            app:floatingSearch_searchBarMarginTop="0dp"
+            android:clipToPadding="true"
+            app:floatingSearch_searchHint="Rechercher une traduction..."
+            app:floatingSearch_showSearchKey="false"
+            app:floatingSearch_suggestionsListAnimDuration="250"
+            app:floatingSearch_viewSuggestionItemTextColor="@color/colorAccent" />
+
     </RelativeLayout>
 </layout>

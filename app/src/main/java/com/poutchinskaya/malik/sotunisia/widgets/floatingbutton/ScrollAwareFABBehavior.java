@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- *
+ * Comportement du floatingActionButton
  */
 
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
@@ -17,6 +17,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
         super();
     }
 
+
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout,
                                        FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes) {
@@ -24,6 +25,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
                 super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,
                         nestedScrollAxes);
     }
+
 
     @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child,
@@ -37,5 +39,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
             child.show();
         }
     }
+
+
 
 }

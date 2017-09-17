@@ -6,9 +6,8 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,12 +17,15 @@ import android.view.View;
 
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.poutchinskaya.malik.sotunisia.BR;
 import com.poutchinskaya.malik.sotunisia.R;
 import com.poutchinskaya.malik.sotunisia.adapters.CategoryAdapter;
 import com.poutchinskaya.malik.sotunisia.appmanagement.Storage;
 import com.poutchinskaya.malik.sotunisia.databinding.ActivityHomeBinding;
-import com.poutchinskaya.malik.sotunisia.fragments.SearchFragment;
+import com.poutchinskaya.malik.sotunisia.events.FilterEvent;
 import com.poutchinskaya.malik.sotunisia.helpers.ChartDataHelper;
 import com.poutchinskaya.malik.sotunisia.helpers.EntityHelper;
 import com.poutchinskaya.malik.sotunisia.model.Category;
@@ -33,6 +35,10 @@ import com.poutchinskaya.malik.sotunisia.widgets.floatingbutton.IDialogFloatingR
 import com.poutchinskaya.malik.sotunisia.widgets.graph.ScoreLineChart;
 import com.poutchinskaya.malik.sotunisia.widgets.graph.ScoreLineDataSet;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +47,13 @@ import java.util.List;
  *
  */
 
-public class HomeActvity extends AbstractActivityBehavior {
+public class HomeActvity extends AppCompatActivity {
     static final int HOME_REQUEST = 1;  // The request code
+    /**
+     * AdMob - publicité
+     */
+    private InterstitialAd mInterstitialAd;
+
 
     private List<Category> categories;
 
@@ -54,9 +65,31 @@ public class HomeActvity extends AbstractActivityBehavior {
 
 
     @Override
+
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        //TODO: mettre dans une variable globale
+        //AdMob - publicité
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-7633719124004269/1985462068");
+        //Requet de pub
+        AdRequest adRequest = new AdRequest.Builder()
+//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+//                .addTestDevice("5C6E6A90CA7C83B66D6DCC6941DC00EC") //TODO: remove le code avant deployement
+                .build();
+
+        //load ad
+        mInterstitialAd.loadAd(adRequest);
+        //launch ad when loaded
+        mInterstitialAd.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                mInterstitialAd.show();
+            }
+        });
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -74,20 +107,6 @@ public class HomeActvity extends AbstractActivityBehavior {
 
         adapter = new CategoryAdapter(this, categories);
 
-
-        //search fragment
-        findViewById(R.id.action_search_fragment_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment searchFragment = new SearchFragment();
-                // adding fragment to relative layout by using layout id
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_bottom, R.anim.exit_to_bottom);
-                transaction.replace(R.id.search_fragment, searchFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
-        });
 
         //All
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -108,24 +127,6 @@ public class HomeActvity extends AbstractActivityBehavior {
         chart = (ScoreLineChart) findViewById(R.id.chart);
         buildProgressChart();
 
-
-        //gestion du filtre
-        findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogFloatingActionButton dialog = new DialogFloatingActionButton(HomeActvity.this, new IDialogFloatingResponse() {
-                    @Override
-                    public void onSortSelected(List<Category> categoriesSorted) {
-                        categories.clear();
-                        categories.addAll(categoriesSorted);
-                        adapter.notifyDataSetChanged();
-                    }
-                }, entityHelper, new ArrayList<Category>(categories));
-
-                dialog.show();
-
-            }
-        });
     }
 
 
@@ -210,6 +211,33 @@ public class HomeActvity extends AbstractActivityBehavior {
             chart.setData(lineData);
             chart.invalidate(); // refresh
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(FilterEvent event) {
+        DialogFloatingActionButton dialog = new DialogFloatingActionButton(HomeActvity.this, new IDialogFloatingResponse() {
+            @Override
+            public void onSortSelected(List<Category> categoriesSorted) {
+                categories.clear();
+                categories.addAll(categoriesSorted);
+                adapter.notifyDataSetChanged();
+            }
+        }, entityHelper, new ArrayList<Category>(categories));
+
+        dialog.show();
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
     }
 }
 
